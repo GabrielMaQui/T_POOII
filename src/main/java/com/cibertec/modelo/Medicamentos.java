@@ -13,7 +13,7 @@ import jakarta.persistence.Table;
 public class Medicamentos{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long idmedicamento;
+    private int idmedicamento;
     private String nombre;
     private String descripcion;
     private String categoria;
@@ -22,16 +22,16 @@ public class Medicamentos{
     @DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date fechaVencimiento;
     private String proveedor;
-
-    
     
     public Medicamentos() {
     	super();
     }
 
    
-	public Medicamentos(String nombre, String descripcion, String categoria, double precio, int stock, Date fechaVencimiento,String proveedor) {
-        this.nombre = nombre;
+	public Medicamentos(int idmedicamento, String nombre, String descripcion, String categoria, double precio, int stock, Date fechaVencimiento,String proveedor) {
+        super();
+		this.idmedicamento = idmedicamento;
+		this.nombre = nombre;
         this.descripcion = descripcion;
         this.categoria = categoria;
         this.precio = precio;
@@ -40,7 +40,7 @@ public class Medicamentos{
         this.proveedor = proveedor;
     }
 	
-    public void setIdmedicamento(Long idmedicamento) {
+    public void setIdmedicamento(int idmedicamento) {
         this.idmedicamento = idmedicamento;
     }
 
