@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+	<meta charset="UTF-8">
+	<title>Listado de Libros</title>
+
+</head>
+
+<body>
+	<div class="container mt-4">
+		<h1>Listado de Libros</h1>
+
+		<!-- Agrega una tabla con estilos de Bootstrap -->
+		<table class="table table-striped">
+			<thead>
+				<tr>
+					<th>ID Medicamento</th>
+					<th>Nombre</th>
+					<th>Descripción</th>
+					<th>Categoria</th>
+					<th>Precio</th>
+					<th>Stock</th>
+					<th>Fecha de Vencimiento</th>
+					<th>Proveedor</th>
+				</tr>
+			</thead>
+			<tbody>
+				<!-- Itera sobre la lista de libros y muestra cada libro -->
+				<tr th:each="medica : ${medicamento}">
+					<td th:text="${medica.idmedicamento}"></td>
+					<td th:text="${medica.nombre}"></td>
+					<td th:text="${medica.descripcion}"></td>
+					<td th:text="${medica.categoria}"></td>
+					<td th:text="${medica.precio}"></td>
+					<td th:text="${medica.stock}"></td>
+					<td th:text="${#dates.format(medica.fechaVencimiento, 'dd-MM-yyyy')}"></td>
+					<td th:text="${medica.proveedor}"></td>
+					<td>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		<a th:href="@{/medicamentos/nuevo}" class="btn btn-success">Nuevo Medicamento</a>
+	</div>
+</body>
+</html>
